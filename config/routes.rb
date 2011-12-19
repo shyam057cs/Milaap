@@ -1,4 +1,7 @@
 Milaap::Application.routes.draw do
+  
+get "donors/new"
+
   resources :campaigns do
     resources :donors
   end

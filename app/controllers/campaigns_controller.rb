@@ -1,6 +1,9 @@
 class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
+http_basic_authenticate_with :name => "admin", :password => "secret", :except => :show
+   
+  
   def index
     @campaigns = Campaign.all
 

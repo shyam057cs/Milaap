@@ -27,30 +27,34 @@
 </p>
 
 
-<h3>List of Donors</h3>
-<%= render @campaign.donors %>
+	<div id="donors-wrapper">
+		<div id="donors">
+			<div class="heading">Recent Donations</div>
+			<div class="body">
+				<table id="cv-donations" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>
+						Name
+					</th>
+					<th>
+						Amount
+					</th>
+					<th>
+						Comment
+					</th>	
+				</tr>
+        <%= render @campaign.donors %>
+			  </table>				
+			</div>
 
+		</div>
+	</div><!-- end donors-wrapper -->								
 
 
 
 <h2>Register as a Donor:</h2>
-<%= form_for([@campaign, @campaign.donors.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_field :comment %>
-  </div>  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render "donors/form" %>
+
 
 
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
