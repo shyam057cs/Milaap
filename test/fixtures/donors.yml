@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  amount: 1
+  email: MyString
+  comment: MyString
+  pay_type: MyString
+  campaign: 
+
+two:
+  name: MyString
+  amount: 1
+  email: MyString
+  comment: MyString
+  pay_type: MyString
+  campaign: 

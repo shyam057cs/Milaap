@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @campaign.description %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @campaign.image_url %>
+</p>
+
+<p>
+  <b>Money to raise:</b>
+  <%= @campaign.money_to_raise %>
+</p>
+
+
+<p>
+  <b>Expiry date:</b>
+  <%= @campaign.expiry_date %>
+</p>
+
+<h2>Donors</h2>
+<% @campaign.donors.each do |donor| %>
+  <p>
+    <b>Name:</b>
+    <%= donor.name %>
+  </p>
+ 
+  <p>
+    <b>Comment:</b>
+    <%= donor.comment %>
+  </p>
+<% end %>
+
+<h2>Register as a Donor:</h2>
+<%= form_for([@campaign, @campaign.donors.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>
