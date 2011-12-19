@@ -1,0 +1,30 @@
+
+<%= form_for([@campaign, @campaign.donors.build]) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, size:40 %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, :rows => 2  %>
+  </div>
+  <div class="field">
+    <%= f.label :pay_type %><br />
+    <%= f.select :pay_type, Donor::PAYMENT_TYPES,:prompt => 'Select a payment method' %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit 'Submit' %>
+  </div>
+  
+<% end %>
