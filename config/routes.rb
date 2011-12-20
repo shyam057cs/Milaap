@@ -1,5 +1,7 @@
 Milaap::Application.routes.draw do
   
+  get "response/thankyou"
+
 get "donors/new"
 
   resources :campaigns do

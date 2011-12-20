@@ -1,49 +1,11 @@
 <h1>Please Select your Payment</h1>
 
-<h4>Using Paypal </h4>
 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="ZXB5JLXHLJJKN">
+<input type="hidden" name="hosted_button_id" value="L944K6CKZSFGW">
 <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
 
-<br />
-  # process the PayPal <span class="caps">IPN POST</span><br />
-  def paypal_ipn<br />
-     if @request.method == :post<br />
-       # use the POSTed information to create a call back <span class="caps">URL</span> to PayPal<br />
-       @query = ‘cmd=_notify-validate’<br />
-       @request.params.each_pair {|key, value| @query = @query + ’&’ + key + ’=’<br />
- + value.first if key != ‘register/pay_pal_ipn.html/pay_pal_ipn’ }</p>
-<ol>
-<li><span class="caps">POST</span> this data<br />
-       http = Net::HTTP.start(PAYPAL_URL, 80)<br />
-       response = http.post(’/cgi-bin/webscr’, @query)<br />
-       http.finish</li>
-</ol>
-<p># PayPal values<br />
-       item_name = @params[:item_name]<br />
-       item_number = @params[:item_number]<br />
-       payment_status = @params[:payment_status]<br />
-       payment_amount = @params[:mc_gross]<br />
-       payment_currency = @params[:mc_currency]<br />
-       txn_id = @params[:txn_id]<br />
-       receiver_email = @params[:receiver_email]<br />
-       payer_email = @params[:payer_email]<br/><br/>       if response<br />
-          if response.body.chomp  ‘VERIFIED’<br />
-             # check the payment status<br />
-             if payment_status  ‘Completed’<br />
-                # check to see if the txn_id already exists</p>
-<p>           # your logic here<br />
-          end<br />
-       end<br />
-     else<br />
-        # <span class="caps">GET</span> request, wtf<br />
-        @text = ‘I do not speak <span class="caps">GET</span>’<br />
-     end<br />
-  rescue Net::HTTPError<br />
-     @text = ‘HTTP error’<br />
-  end<br />
 
